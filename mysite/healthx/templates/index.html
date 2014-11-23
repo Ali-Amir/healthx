@@ -1,0 +1,2459 @@
+<html lang="en">
+  <head>
+    <script src="http://johntang.github.io/JsTree/_lib/jquery.js"></script>
+    <script src="http://johntang.github.io/JsTree/_lib/jquery.cookie.js"></script>
+    <script src="http://johntang.github.io/JsTree/_lib/jquery.hotkeys.js"></script>
+    <script src="http://johntang.github.io/JsTree/jquery.jstree.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.4/themes/default/style.min.css" />
+  </head>
+
+  <body>
+    <header class="sixteen columns">
+      <div id="logo" style="margin-top:-100px; width:100%">
+        <img src="http://s11.postimg.org/6m14uh537/Health_X.jpg" style="margin-left:38%">
+      </div>
+      <div id="login" style="margin-top:200px;">
+        <text style="margin-left:40%">
+          Username:
+        </text>
+        <input type="text" name="firstName" style="margin-left:40%">
+        <text style="margin-left:40%">
+          Password:
+        </text>
+        <input type="password" name="lastName" style="margin-left:40%">
+        <button id="loginPage" style="font-size:100%;margin-left:44%" onclick="loginPressed()">Login</button>
+      </div>
+      <div style="text-align:center; display:none;" id="portal">
+        <div id="hacking">
+          <h1 style="margin-left:-150px;">
+            HACKING
+          </h1>
+          <h2 style="margin-left:-150px;">
+            the MAINFRAME
+          </h2>
+          <img src="http://www.rpgnow.com/shared_images/ajax-loader.gif" style="margin-top:-100px; margin-left:-170px; width:300px; height:300px;">
+        </div>
+        <div id="data">
+          
+        </div>
+      </div>
+    </header>
+    <script>
+    function xml_to_string(xml_node)
+    {
+        if (xml_node.xml)
+            return xml_node.xml;
+        else if (XMLSerializer)
+        {
+            var xml_serializer = new XMLSerializer();
+            return xml_serializer.serializeToString(xml_node);
+        }
+        else
+        {
+            alert("ERROR: Extremely old browser");
+            return "";
+        }
+    }
+    function insertLiteral(literalString, targetElement)
+    {
+        var textNode = document.createTextNode(literalString);
+        targetElement.appendChild(textNode)
+        return textNode;
+    }
+
+      function loginPressed() {
+        $("#login").hide(); 
+        $('#portal').show();
+        $.get("/getPatientData", function(data, status) {
+          var xml = data;
+/*
+          xml = "<root>" +
+              "<item id='node_1'>" +
+                      "<content><name>Root node 1</name></content>" +
+                          "</item>" +
+                              "<item>" +
+                                      "<content><name>Root node 2</name></content>" +
+                                          "</item>" +
+                                              "<item parent_id='node_1'>" +
+                                                      "<content><name>Child node</name></content>" +
+                                                          "</item>" +
+                                                          "</root>";
+          console.log(xml);
+*/
+          $('#hacking').hide();
+          //$('#data').jstree({'xml_data': {'data': xml}, 'plugins': ["themes", "xml_data"]});
+          var targetElement = document.getElementById("data");
+          var xmlTextNode = insertLiteral(xml, targetElement);
+          //$('#data').innerHTML(xml_to_string(xml));
+        });
+      }
+    </script>
+    <style>
+      #targetDiv {
+        font-family: fixed;
+        white-space: pre;
+      }
+    </style>
+    <style>
+      /*
+      ••••••••••••••••••••••••
+
+      Powered by Type & Grids™
+      www.typeandgrids.com
+
+      ••••••••••••••••••••••••
+      */
+
+      /*
+      Responsive grid is from Skeleton by Dave Gamache
+      www.getskeleton.com
+      */
+
+      /*===================================================================================================
+      Contents
+      =====================================================================================================
+        1) Reset & basics
+        2) Basic styles
+        3) Typography
+        4) Links
+        5) Lists
+        6) Images
+        7) Buttons
+        8) Forms
+        9) Misc
+        10) Base 960 grid
+          11) Tablet (Portrait)
+          12) Mobile (Portrait)
+          13) Mobile (Landscape)
+          14) Clearing
+        15) Portfolio slider
+        16) Site styles
+        17) Media queries
+        18) Print styles
+      */
+
+      /*===================================================================================================
+      1) Reset & basics
+      ===================================================================================================*/
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          font-size: 100%;
+          font: inherit;
+          vertical-align: baseline; }
+        article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+          display: block; }
+        body {
+          line-height: 1; }
+        ol, ul {
+          list-style: none; }
+        blockquote, q {
+          quotes: none; }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+          content: '';
+          content: none; }
+        table {
+          border-collapse: collapse;
+          border-spacing: 0; }
+
+      /*===================================================================================================
+      2) Basic styles
+      ===================================================================================================*/
+        body {
+          /*background: #fff;*/
+          background: #FFFFFF;
+          font: 14px/21px Arial, sans-serif;
+          color: #444;
+          -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+          -webkit-text-size-adjust: 100%;
+          
+          -webkit-transition: background-color 0.8s ease-out;
+          -moz-transition: background-color 0.8s ease-out;
+          -o-transition: background-color 0.8s ease-out;
+          transition: background-color 0.8s ease-out;
+        }
+
+      /*===================================================================================================
+      3) Typography
+      ===================================================================================================*/
+        h1, h2, h3, h4, h5, h6 {
+          color: #222;
+          font-family: Georgia, Arial, sans-serif;
+          font-weight: normal; }
+        h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
+        h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
+        h2 { font-size: 35px; line-height: 40px; margin-bottom: 10px; }
+        h3 { font-size: 28px; line-height: 34px; margin-bottom: 6px; }
+        h4 { font-size: 21px; line-height: 30px; margin-bottom: 6px; }
+        h5 { font-size: 17px; line-height: 24px; }
+        h6 { font-size: 14px; line-height: 21px; }
+        .subheader { color: #777; }
+
+        p { margin: 0 0 20px 0; }
+        p img { margin: 0; }
+        p.lead { font-size: 21px; line-height: 27px; color: #777;  }
+
+        em { font-style: italic; }
+        strong { font-weight: bold; color: #333; }
+        small { font-size: 80%; }
+
+        blockquote, blockquote p { font-family: Georgia, Arial, sans-serif; font-size: 14px; line-height: 1.5; font-style: italic; }
+        blockquote { margin: 0 0 20px; padding: 9px 20px 0 19px; border-left: 1px solid #ddd; }
+        blockquote cite { font-family: Arial, sans-serif; font-style: normal; font-weight: bold; display: block; padding-top: 8px; }
+        blockquote cite:before { content: "\2014"; }
+        /*blockquote cite a, blockquote cite a:visited, blockquote cite a:visited { color: #555; }*/
+
+        hr { border: solid #ddd; border-width: 1px 0 0; clear: both; margin: 10px 0 30px; height: 0; }
+
+      /*===================================================================================================
+      4) Links
+      ===================================================================================================*/
+        a, a:visited { color: #333; text-decoration: underline; outline: 0; }
+        a:hover, a:focus { color: #777; }
+        p a, p a:visited { line-height: inherit; }
+
+      /*===================================================================================================
+      5) Lists
+      ===================================================================================================*/
+        ul, ol { margin-bottom: 20px; }
+        ul { list-style: none outside; }
+        ol { list-style: decimal; }
+        ol, ul.square, ul.circle, ul.disc { margin-left: 30px; }
+        ul.square { list-style: square outside; }
+        ul.circle { list-style: circle outside; }
+        ul.disc { list-style: disc outside; }
+        ul ul, ul ol,
+        ol ol, ol ul { margin: 4px 0 5px 30px; font-size: 90%;  }
+        ul ul li, ul ol li,
+        ol ol li, ol ul li { margin-bottom: 6px; }
+        li { line-height: 18px; margin-bottom: 12px; }
+        ul.large li { line-height: 21px; }
+        li p { line-height: 21px; }
+
+      /*===================================================================================================
+      6) Images
+      ===================================================================================================*/
+        img.scale-with-grid {
+          max-width: 100%;
+          height: auto; }
+
+      /*===================================================================================================
+      7) Buttons
+      ===================================================================================================*/
+        .button,
+        button,
+        input[type="submit"],
+        input[type="reset"],
+        input[type="button"] {
+          background: #eee; /* Old browsers */
+          background: #eee -moz-linear-gradient(top, rgba(255,255,255,.2) 0%, rgba(0,0,0,.2) 100%); /* FF3.6+ */
+          background: #eee -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,.2)), color-stop(100%,rgba(0,0,0,.2))); /* Chrome,Safari4+ */
+          background: #eee -webkit-linear-gradient(top, rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%); /* Chrome10+,Safari5.1+ */
+          background: #eee -o-linear-gradient(top, rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%); /* Opera11.10+ */
+          background: #eee -ms-linear-gradient(top, rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%); /* IE10+ */
+          background: #eee linear-gradient(top, rgba(255,255,255,.2) 0%,rgba(0,0,0,.2) 100%); /* W3C */
+          border: 1px solid #aaa;
+          border-top: 1px solid #ccc;
+          border-left: 1px solid #ccc;
+          padding: 4px 12px;
+          -moz-border-radius: 3px;
+          -webkit-border-radius: 3px;
+          border-radius: 3px;
+          color: #444;
+          display: inline-block;
+          font-size: 11px;
+          font-weight: bold;
+          text-decoration: none;
+          text-shadow: 0 1px rgba(255, 255, 255, .75);
+          cursor: pointer;
+          /*margin-bottom: 20px;*/
+          line-height: normal;
+          padding: 8px 10px;
+          font-family: Arial, sans-serif; }
+
+        .button:hover,
+        button:hover,
+        input[type="submit"]:hover,
+        input[type="reset"]:hover,
+        input[type="button"]:hover {
+          color: #222;
+          background: #ddd; /* Old browsers */
+          background: #ddd -moz-linear-gradient(top, rgba(255,255,255,.3) 0%, rgba(0,0,0,.3) 100%); /* FF3.6+ */
+          background: #ddd -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,.3)), color-stop(100%,rgba(0,0,0,.3))); /* Chrome,Safari4+ */
+          background: #ddd -webkit-linear-gradient(top, rgba(255,255,255,.3) 0%,rgba(0,0,0,.3) 100%); /* Chrome10+,Safari5.1+ */
+          background: #ddd -o-linear-gradient(top, rgba(255,255,255,.3) 0%,rgba(0,0,0,.3) 100%); /* Opera11.10+ */
+          background: #ddd -ms-linear-gradient(top, rgba(255,255,255,.3) 0%,rgba(0,0,0,.3) 100%); /* IE10+ */
+          background: #ddd linear-gradient(top, rgba(255,255,255,.3) 0%,rgba(0,0,0,.3) 100%); /* W3C */
+          border: 1px solid #888;
+          border-top: 1px solid #aaa;
+          border-left: 1px solid #aaa; }
+
+        .button:active,
+        button:active,
+        input[type="submit"]:active,
+        input[type="reset"]:active,
+        input[type="button"]:active {
+          border: 1px solid #666;
+          background: #ccc; /* Old browsers */
+          background: #ccc -moz-linear-gradient(top, rgba(255,255,255,.35) 0%, rgba(10,10,10,.4) 100%); /* FF3.6+ */
+          background: #ccc -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,.35)), color-stop(100%,rgba(10,10,10,.4))); /* Chrome,Safari4+ */
+          background: #ccc -webkit-linear-gradient(top, rgba(255,255,255,.35) 0%,rgba(10,10,10,.4) 100%); /* Chrome10+,Safari5.1+ */
+          background: #ccc -o-linear-gradient(top, rgba(255,255,255,.35) 0%,rgba(10,10,10,.4) 100%); /* Opera11.10+ */
+          background: #ccc -ms-linear-gradient(top, rgba(255,255,255,.35) 0%,rgba(10,10,10,.4) 100%); /* IE10+ */
+          background: #ccc linear-gradient(top, rgba(255,255,255,.35) 0%,rgba(10,10,10,.4) 100%); /* W3C */ }
+
+        .button.full-width,
+        button.full-width,
+        input[type="submit"].full-width,
+        input[type="reset"].full-width,
+        input[type="button"].full-width {
+          width: 100%;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+          text-align: center; }
+
+        /* Fix for odd Mozilla border & padding issues */
+        button::-moz-focus-inner,
+        input::-moz-focus-inner {
+          border: 0;
+          padding: 0;
+        }
+
+      /*===================================================================================================
+      8) Forms
+      ===================================================================================================*/
+        form {
+          margin-bottom: 20px; }
+        fieldset {
+          margin-bottom: 20px; }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        textarea,
+        select {
+          border: 1px solid #ccc;
+          padding: 6px 4px;
+          outline: none;
+          -moz-border-radius: 2px;
+          -webkit-border-radius: 2px;
+          border-radius: 2px;
+          font: 13px Arial, sans-serif;
+          color: #444;
+          margin: 0;
+          width: 210px;
+          max-width: 100%;
+          display: block;
+          margin-bottom: 20px;
+          background: #fff; }
+        select {
+          padding: 0; }
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+          border: 1px solid #aaa;
+          color: #444;
+          -moz-box-shadow: 0 0 3px rgba(0,0,0,.2);
+          -webkit-box-shadow: 0 0 3px rgba(0,0,0,.2);
+          box-shadow:  0 0 3px rgba(0,0,0,.2); }
+        textarea {
+          min-height: 60px; }
+        label,
+        legend {
+          display: block;
+          font-weight: bold;
+          font-size: 13px;  }
+        select {
+          width: 220px; }
+        input[type="checkbox"] {
+          display: inline; }
+        label span,
+        legend span {
+          font-weight: normal;
+          font-size: 13px;
+          color: #444; }
+
+      /*===================================================================================================
+      9) Misc
+      ===================================================================================================*/
+        .remove-bottom { margin-bottom: 0 !important; }
+        .half-bottom { margin-bottom: 10px !important; }
+        .add-bottom { margin-bottom: 20px !important; }
+
+      /*===================================================================================================
+      10) Base 960 grid
+      ===================================================================================================*/
+          .container                                  { position: relative; width: 960px; margin: 0 auto; padding: 0; }
+          .container .column,
+          .container .columns                         { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
+          .row                                        { margin-bottom: 20px; }
+
+          /* Nested Column Classes */
+          .column.alpha, .columns.alpha               { margin-left: 0; }
+          .column.omega, .columns.omega               { margin-right: 0; }
+
+          /* Base Grid */
+          .container .one.column,
+          .container .one.columns                     { width: 40px;  }
+          .container .two.columns                     { width: 100px; }
+          .container .three.columns                   { width: 160px; }
+          .container .four.columns                    { width: 220px; }
+          .container .five.columns                    { width: 280px; }
+          .container .six.columns                     { width: 340px; }
+          .container .seven.columns                   { width: 400px; }
+          .container .eight.columns                   { width: 460px; }
+          .container .nine.columns                    { width: 520px; }
+          .container .ten.columns                     { width: 580px; }
+          .container .eleven.columns                  { width: 640px; }
+          .container .twelve.columns                  { width: 700px; }
+          .container .thirteen.columns                { width: 760px; }
+          .container .fourteen.columns                { width: 820px; }
+          .container .fifteen.columns                 { width: 880px; }
+          .container .sixteen.columns                 { width: 940px; }
+
+          .container .one-third.column                { width: 300px; }
+          .container .two-thirds.column               { width: 620px; }
+
+          /* Offsets */
+          .container .offset-by-one                   { padding-left: 60px;  }
+          .container .offset-by-two                   { padding-left: 120px; }
+          .container .offset-by-three                 { padding-left: 180px; }
+          .container .offset-by-four                  { padding-left: 240px; }
+          .container .offset-by-five                  { padding-left: 300px; }
+          .container .offset-by-six                   { padding-left: 360px; }
+          .container .offset-by-seven                 { padding-left: 420px; }
+          .container .offset-by-eight                 { padding-left: 480px; }
+          .container .offset-by-nine                  { padding-left: 540px; }
+          .container .offset-by-ten                   { padding-left: 600px; }
+          .container .offset-by-eleven                { padding-left: 660px; }
+          .container .offset-by-twelve                { padding-left: 720px; }
+          .container .offset-by-thirteen              { padding-left: 780px; }
+          .container .offset-by-fourteen              { padding-left: 840px; }
+          .container .offset-by-fifteen               { padding-left: 900px; }
+
+      /*===================================================================================================
+      11) Tablet (Portrait)
+      ===================================================================================================*/
+          /* Note: Design for a width of 768px */
+
+          @media only screen and (min-width: 768px) and (max-width: 959px) {
+              .container                                  { width: 768px; }
+              .container .column,
+              .container .columns                         { margin-left: 10px; margin-right: 10px;  }
+              .column.alpha, .columns.alpha               { margin-left: 0; margin-right: 10px; }
+              .column.omega, .columns.omega               { margin-right: 0; margin-left: 10px; }
+              .alpha.omega                                { margin-left: 0; margin-right: 0; }
+
+              .container .one.column,
+              .container .one.columns                     { width: 28px; }
+              .container .two.columns                     { width: 76px; }
+              .container .three.columns                   { width: 124px; }
+              .container .four.columns                    { width: 172px; }
+              .container .five.columns                    { width: 220px; }
+              .container .six.columns                     { width: 268px; }
+              .container .seven.columns                   { width: 316px; }
+              .container .eight.columns                   { width: 364px; }
+              .container .nine.columns                    { width: 412px; }
+              .container .ten.columns                     { width: 460px; }
+              .container .eleven.columns                  { width: 508px; }
+              .container .twelve.columns                  { width: 556px; }
+              .container .thirteen.columns                { width: 604px; }
+              .container .fourteen.columns                { width: 652px; }
+              .container .fifteen.columns                 { width: 700px; }
+              .container .sixteen.columns                 { width: 748px; }
+
+              .container .one-third.column                { width: 236px; }
+              .container .two-thirds.column               { width: 492px; }
+
+              /* Offsets */
+              .container .offset-by-one                   { padding-left: 48px; }
+              .container .offset-by-two                   { padding-left: 96px; }
+              .container .offset-by-three                 { padding-left: 144px; }
+              .container .offset-by-four                  { padding-left: 192px; }
+              .container .offset-by-five                  { padding-left: 240px; }
+              .container .offset-by-six                   { padding-left: 288px; }
+              .container .offset-by-seven                 { padding-left: 336px; }
+              .container .offset-by-eight                 { padding-left: 384px; }
+              .container .offset-by-nine                  { padding-left: 432px; }
+              .container .offset-by-ten                   { padding-left: 480px; }
+              .container .offset-by-eleven                { padding-left: 528px; }
+              .container .offset-by-twelve                { padding-left: 576px; }
+              .container .offset-by-thirteen              { padding-left: 624px; }
+              .container .offset-by-fourteen              { padding-left: 672px; }
+              .container .offset-by-fifteen               { padding-left: 720px; }
+          }
+
+      /*===================================================================================================
+      12) Mobile (Portrait)
+      ===================================================================================================*/
+          /* Note: Design for a width of 320px */
+
+          @media only screen and (max-width: 767px) {
+              .container { width: 300px; }
+              .container .columns,
+              .container .column { margin: 0; }
+
+              .container .one.column,
+              .container .one.columns,
+              .container .two.columns,
+              .container .three.columns,
+              .container .four.columns,
+              .container .five.columns,
+              .container .six.columns,
+              .container .seven.columns,
+              .container .eight.columns,
+              .container .nine.columns,
+              .container .ten.columns,
+              .container .eleven.columns,
+              .container .twelve.columns,
+              .container .thirteen.columns,
+              .container .fourteen.columns,
+              .container .fifteen.columns,
+              .container .sixteen.columns,
+              .container .one-third.column,
+              .container .two-thirds.column  { width: 300px; }
+
+              /* Offsets */
+              .container .offset-by-one,
+              .container .offset-by-two,
+              .container .offset-by-three,
+              .container .offset-by-four,
+              .container .offset-by-five,
+              .container .offset-by-six,
+              .container .offset-by-seven,
+              .container .offset-by-eight,
+              .container .offset-by-nine,
+              .container .offset-by-ten,
+              .container .offset-by-eleven,
+              .container .offset-by-twelve,
+              .container .offset-by-thirteen,
+              .container .offset-by-fourteen,
+              .container .offset-by-fifteen { padding-left: 0; }
+
+          }
+
+      /*===================================================================================================
+      13) Mobile (Landscape)
+      ===================================================================================================*/
+          /* Note: Design for a width of 480px */
+
+          @media only screen and (min-width: 480px) and (max-width: 767px) {
+              .container { width: 420px; }
+              .container .columns,
+              .container .column { margin: 0; }
+
+              .container .one.column,
+              .container .one.columns,
+              .container .two.columns,
+              .container .three.columns,
+              .container .four.columns,
+              .container .five.columns,
+              .container .six.columns,
+              .container .seven.columns,
+              .container .eight.columns,
+              .container .nine.columns,
+              .container .ten.columns,
+              .container .eleven.columns,
+              .container .twelve.columns,
+              .container .thirteen.columns,
+              .container .fourteen.columns,
+              .container .fifteen.columns,
+              .container .sixteen.columns,
+              .container .one-third.column,
+              .container .two-thirds.column { width: 420px; }
+          }
+
+      /*===================================================================================================
+      14) Clearing
+      ===================================================================================================*/
+          /* Self clearing goodness */
+          .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+          /* Use clearfix class on parent to clear nested columns, or wrap each row of columns in a <div class="row"> */
+          .clearfix:before,
+          .clearfix:after,
+          .row:before,
+          .row:after {
+            content: '\0020';
+            display: block;
+            overflow: hidden;
+            visibility: hidden;
+            width: 0;
+            height: 0; }
+          .row:after,
+          .clearfix:after {
+            clear: both; }
+          .row,
+          .clearfix {
+            zoom: 1; }
+
+          /* You can also use a <br class="clear" /> to clear columns */
+          .clear {
+            clear: both;
+            display: block;
+            overflow: hidden;
+            visibility: hidden;
+            width: 0;
+            height: 0;
+          }
+
+      /*===================================================================================================
+      15) Portfolio slider
+      ===================================================================================================*/
+        .portfolioSlider {  
+          position:relative;
+          
+          /* Set width and height of slider here, in px, % or em */
+          width: 600px;
+          height: 300px;
+          
+          /* Used to prevent content "jumping" on page load - this property is removed when JavaScript is loaded and slider is instantiated */
+          overflow: hidden;
+        }
+
+        /* Slides area */
+        .portfolioSlider .portfolioWrapper {
+          overflow:hidden;  
+          position:relative;
+          width:100%; 
+          height:100%;
+        }
+        
+        .portfolioSlider .portfolioSlide,
+        .portfolioSlider .portfolioWrapper {
+          /* Bakground behind slides  */
+          
+          background: #000000;
+          /*
+          background: -moz-linear-gradient(top, #111111 0%, #242424 100%);  
+          background: -webkit-linear-gradient(top, #111111 0%,#242424 100%); 
+          background: -o-linear-gradient(top, #111111 0%,#242424 100%);
+          background: -ms-linear-gradient(top, #111111 0%,#242424 100%);  
+          background: linear-gradient(top, #111111 0%,#242424 100%);
+          */
+        }
+        
+        /* Slides holder, grabbing container */
+        .portfolioSlider .portfolioSlidesContainer {
+          position: relative;
+          left: 0;
+          top: 0 !important;
+          list-style:none !important;
+          margin:0 !important;
+          padding:0 !important;
+          border: 0 !important;
+        }
+        
+        /* Slide item */
+        .portfolioSlider .portfolioSlide {
+          padding: 0 !important;
+          margin: 0 !important; 
+          border: 0 !important;
+          list-style: none !important;
+          position:relative;
+          float:left;
+          overflow:hidden;  
+        }
+
+        /* Arrow navigation */
+        .portfolioSlider .arrow { 
+          /*background:url(../img/controlsSprite.png) no-repeat 0 0;*/
+          background-color: #C00;
+          background-repeat: no-repeat;
+          background-position: 0 0;
+        
+          /* Change arrow size here */
+          width: 45px;
+          height: 90px;
+          top:50%;
+          margin-top:-45px;
+          cursor: pointer;
+          display: block;
+          position: absolute;   
+          z-index:25;
+        }
+        
+        .portfolioSlider .arrow:hover {
+          
+        }
+        .portfolioSlider .arrow.disabled {
+          
+        }
+        
+        /* Left arrow */
+        .portfolioSlider .arrow.left {
+          background-position: top left;
+          left: 0;  
+        }
+        
+        /* Right arrow */
+        .portfolioSlider .arrow.right {
+          background-position: top right;
+          right: 0;
+        }
+        
+        /* Control navigation container (bullets or thumbs) */
+        .portfolioSlider .portfolioControlNavOverflow {
+          width:100%;
+          overflow:hidden;
+          position:absolute;
+          margin-top:-20px;
+          z-index:25;
+        }
+        /* This container is inside ".portfolioControlNavContainer"  
+           and is used for auto horizontal centering */
+        .portfolioSlider .portfolioControlNavCenterer { 
+          float: left;
+          position: relative;
+          left: -50%;
+        }
+        
+        /* Control navigation container*/ 
+        .portfolioSlider .portfolioControlNavContainer {
+          float: left;
+          position: relative;
+          left: 50%;  
+        }
+        
+        /* Scrollable thumbnails containers */
+        .portfolioSlider .portfolioControlNavThumbsContainer {    
+          left:0;
+          position:relative;
+        }
+        
+        .portfolioSlider .thumbsAndArrowsContainer {
+          overflow:hidden;
+          width: 100%;
+          position: relative;
+        }
+        
+        .portfolioSlider .portfolioControlNavOverflow.portfolioThumbs { 
+          width: auto;
+          position: relative;
+          overflow: hidden;
+          margin-top:4px; 
+        }
+        
+        .portfolioSlider .portfolioControlNavOverflow a{  
+          background:#0C0 none no-repeat scroll 0 0;
+          width:20px;
+          height:20px;  
+          float:left; 
+          cursor:pointer; 
+          position:relative;
+          display:block;
+          text-indent: -9999px; 
+        }
+        
+        /* Current control navigation item */
+        .portfolioSlider .portfolioControlNavOverflow a.current { 
+          background-color: #C00; 
+        }
+        
+        /* Hover state navigation item */
+        .portfolioSlider .portfolioControlNavOverflow a:hover { 
+          background-color: #00C;
+        }
+        
+        /* Thumbnails */
+        .portfolioSlider .portfolioControlNavOverflow a.portfolioThumb{ 
+          /*background: none no-repeat 0 0;*/
+          /*background-color: ;*/
+          width:144px;
+          height:60px;  
+          /* thumbnails spacing, use margin-right only */ 
+          margin-right:4px;
+        }
+        
+        .portfolioSlider .portfolioControlNavOverflow a.portfolioThumb.current {  
+          background-position: -3px -3px  !important;
+          border:3px solid #C00 !important;
+          width:138px;
+          height:54px;
+        }
+        
+        .portfolioSlider .portfolioControlNavOverflow a.portfolioThumb:hover {  
+          background-position: -3px -3px; 
+          border:3px solid #00C;
+          width:138px;
+          height:54px;
+        }
+        
+        .portfolioSlider .thumbsArrow { 
+          width: 38px;
+          height: 68px; 
+          cursor: pointer;
+          display: block;
+          position: relative;   
+          z-index: 25;
+          background: #C99;
+        }
+        
+        .portfolioSlider .thumbsArrow.left {  
+          float: left;
+        }
+        
+        .portfolioSlider .thumbsArrow.right { 
+          float: right;
+        }
+        
+        .portfolioSlider .thumbsArrow:hover  {
+          
+        }
+        
+        .portfolioSlider .thumbsArrow.disabled {
+          
+        }
+        
+        /* Captions container */
+        .portfolioSlider .portfolioCaption {
+          z-index:20;
+          display:block;
+          position:absolute;  
+          left:0;
+          top:0;
+          /*font: normal normal normal 1em/1.5em Georgia, serif;
+          color:#FFF;   */
+        }
+        
+        /* Caption item */
+        .portfolioSlider .portfolioCaptionItem {
+          position:absolute;  
+          left:0;
+          top:0;
+          margin: 0;
+          padding: 0;
+        }
+        
+        /* Loading screen */
+        .portfolioSlider .portfolioLoadingScreen {
+          background:#FFF;
+          width:100%;
+          height:100%;
+          position:absolute;
+          z-index:99; 
+        }
+        
+        /* Loading screen text ("Loading...") */
+        .portfolioSlider .portfolioLoadingScreen p {    
+          width:100%;
+          position:absolute;  
+          margin:0 auto;
+          top: 45%;
+          text-align:center;
+        }
+        
+        /* Single slide image preloader */
+        .portfolioSlider .portfolioPreloader {  
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          left: 50%;
+          top: 50%;
+          margin-left: -12px;
+          margin-top: -12px;  
+          z-index: 0; 
+          background-image: url(slider_assets/preloader.gif);
+        }
+        
+        .portfolioSlider .grab-cursor{cursor:move;}
+        .portfolioSlider .grab-cursor{cursor:url("slider_assets/grab.png") 8 8,-moz-grab;}
+        .portfolioSlider .grab-cursor{*cursor:url(slider_assets/grab.cur);}
+        .portfolioSlider .grab-cursor{cursor:move\0/;} /* ie8 hack */
+        
+        .portfolioSlider .grabbing-cursor{cursor:move;}
+        .portfolioSlider .grabbing-cursor{cursor:url("slider_assets/grabbing.png") 8 8,-moz-grabbing;}
+        .portfolioSlider .grabbing-cursor{*cursor:url(slider_assets/grabbing.cur);}
+        
+        /* Cursor used if mouse dragging is disabled */
+        .portfolioSlider .auto-cursor{cursor:auto;}
+        
+        .portfolioSlider .portfolioHtmlContent {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        
+        .portfolioSlider .non-draggable {
+          cursor: auto;
+        }
+        
+        .portfolioSlider .fade-container .portfolioSlide{
+          position: absolute;
+          left: 0;
+          top: 0;
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          z-index: 10;
+        }
+        
+        .portfolioSlider .portfolioImage {
+          max-width:none;
+          margin:0;
+          padding: 0 !important;
+          border: 0 !important; 
+        }
+
+        /* Customization */
+        .projectThumbnail {
+          cursor: pointer;  
+        }
+        
+        .project img.thumbnailImage {
+          max-width: 100%;
+          height: auto;
+          cursor: pointer;
+        }
+        
+        .portfolioSlider {
+          width: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          overflow: hidden;
+          z-index: 10;
+        }
+        
+        .portfolioSliderData {
+          display: none;
+          overflow: hidden;
+        }
+        
+        .portfolioSlidesContainer {
+          display: block;
+        }
+        
+        .first-img-preloader {
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: 12;
+          background: #000;
+          /*background: rgba(0,0,0,1.0);*/
+          /*filter:inherit;*/
+        }
+        
+        .preloader-graphics {
+          position: relative;
+          width: 30px;
+          height: 30px;
+          left: 50%;
+          top: 50%;
+          margin-left: -12px;
+          margin-top: -12px;  
+          z-index: 0; 
+          background-image: url(slider_assets/preloader.gif);
+        }
+
+      /*===================================================================================================
+      16) Site styles
+      ===================================================================================================*/
+      h1 { font-size: 48px; line-height: 1.2; }
+      h2 { font-size: 36px; line-height: 1.2; }
+      h3 { font-size: 24px; line-height: 1.2; }
+      h4 { font-size: 18px; line-height: 1.2; }
+      h5 { font-size: 14px; line-height: 1.2; }
+      h6 { font-size: 12px; line-height: 1.2; }
+
+      .currentPage, button.currentPage:hover {
+        color: #bbb;
+        cursor: default;
+      }
+
+      button.currentPage:hover {
+        cursor: auto;
+      }
+
+#sitePreloader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        z-index: 2;
+      }
+
+#preloaderImage {
+        width: 30px;
+        margin: 100px auto;
+      }
+
+      header {
+        padding-top: 80px;
+        border-top: 3px solid #000;
+      }
+
+#logo, #logoDetailView {
+        float: left;
+        cursor: pointer;
+      }
+
+#logo img, #logoDetailView img {
+        margin-top: 28px;
+      }
+
+#logo h1, #logoDetailView h1 {
+        font-family: Georgia, Arial, sans-serif;
+        font-weight: normal;
+          font-style: normal;
+        font-size: 36px;
+        line-height: 1.5;
+        letter-spacing: -0.05em;
+        text-rendering: optimizeLegibility;
+      }
+
+#logo h2, #logoDetailView h2 {
+        font-family: Georgia, Arial, sans-serif;
+        font-weight: normal;
+          font-style: italic;
+        font-size: 16px;
+        line-height: 1.2;
+        letter-spacing: -0.07em;
+        text-rendering: optimizeLegibility;
+        margin-top: -23px;
+      }
+
+      a, button {
+        -webkit-transition: color 0.2s ease-out;
+        -moz-transition: color 0.2s ease-out;
+        -o-transition: color 0.2s ease-out;
+        transition: color 0.2s ease-out;
+      }
+
+      a, a:visited {
+        color: #333;
+      }
+
+      a:hover, a:active, a:focus, #heroNav a:hover, #heroNav a:visited:hover, #heroNav a:active, #heroNav a:focus, #formSubmit:hover, .contentModule a:hover, .contentModule a:visited:hover, .contentModule a:active, .contentModule a:focus { color: #777777; } {
+        color: #888;
+      }
+
+      nav {
+        list-style: none;
+        float: right;
+        padding-top: 45px;
+        margin-bottom: -30px;
+        padding-bottom: 20px;
+      }
+
+      nav ul li {
+        display: inline;
+        padding-left: 26px;
+      }
+
+      nav ul li:first-child {
+        padding-left: 0px;
+      }
+
+      nav ul li a, nav ul li a:visited, nav ul li button, nav ul li span {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+          font-style: normal;
+        font-size: 12px;
+        line-height: 1.5;
+        letter-spacing: 0;
+        text-rendering: auto;
+        text-decoration: none;
+      }
+
+      nav ul li button, .projectNav button {
+        background: none;
+        border: none;
+        text-shadow: none;
+        padding: 0;
+      }
+
+      nav ul li button {
+        margin-bottom: 0px;
+      }
+
+      nav ul li button:hover, .projectNav button:hover {
+        background: none;
+        border: none;
+      }
+
+      nav ul li button:hover, nav ul li button:active, nav ul li button:focus, nav ul li a:hover, nav ul li a:active, nav ul li a:focus {
+        color: #888;
+        outline: 0;
+      }
+
+#overview {
+        padding-bottom: 10px; 
+      }
+
+#overview h3 {
+        font-family: Georgia, Arial, sans-serif;
+        font-weight: normal;
+          font-style: normal;
+        font-size: 36px;
+        line-height: 1.2;
+        letter-spacing: -0.04em;
+        text-rendering: auto;
+        color: #333;
+        margin-top: -7px;
+        margin-bottom: 22px;  
+      }
+
+      .project {
+        margin-bottom: 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .projectThumbnail {
+        max-width: 100%;
+        height: 100%;
+      }
+
+      .projectThumbnail img {
+        display: block;
+      }
+
+      .projectThumbnailHover {
+        background-color: #000;
+        background-color: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: none;
+        z-index: 10;
+      }
+
+      .projectThumbnailHover h4 {
+        font-family: Georgia, Arial, sans-serif;
+        font-weight: normal;
+          font-style: normal;
+        font-size: 24px;
+        line-height: 1.2;
+        letter-spacing: -0.05em;
+        text-rendering: auto;
+        color: #fff;
+        position: absolute;
+        margin-top: 40px;
+        display: none;
+      }
+
+      .projectThumbnailHover h5 {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+          font-style: normal;
+        font-size: 12px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        text-rendering: auto;
+        color: #fff;
+        position: absolute;
+        padding-top: 69px;
+        display: none;
+      }
+
+      .projectInfo {
+        overflow: hidden;
+      }
+
+      .projectInfo h4 {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+          font-style: normal;
+        font-size: 14px;
+        line-height: 1.2;
+        letter-spacing: -0.05em;
+        text-rendering: auto;
+        color: #444;
+        padding-top: 12px;
+        padding-bottom: 8px;
+        margin-bottom: 4px;
+        float: left;
+      }
+
+      .projectNav {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+          font-style: normal;
+        font-size: 11px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        text-rendering: auto;
+        color: #444;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        height: 29px;
+        margin-bottom: 9px;
+        padding-top: 4px;
+        margin-top: 38px;
+      }
+
+      .projectNavCounter {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+          font-style: normal;
+        font-size: 12px;
+        letter-spacing: 0;
+        text-rendering: auto;
+        color: #444;
+        font-size: 12px;
+        padding-top: 11px;
+        float: right;
+        text-align: right;
+      }
+
+      .projectNavClose button, .projectNavButtons button, .projectNavEnlarge button {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+          font-style: normal;
+        font-size: 11px;
+        line-height: 1.2;
+        text-rendering: auto;
+        color: #444;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        text-decoration: none;
+      }
+
+      .projectNav button:hover, .projectNav button:active, .projectNav button:focus {
+        color: #777;
+        outline: 0;
+      }
+
+      .projectNavInactive, button.projectNavInactive, button.projectNavInactive:hover, button.projectNavInactive:active {
+        color: #ccc;
+        text-decoration: none;
+        cursor: auto;
+      }
+
+      .projectNavEnlarge {
+        float: left;
+        /*padding-left: 1px;*/
+        padding-top: 5px;
+        padding-top: 7px\9; /* IE adjustment */
+        width: auto;
+      }
+
+      .projectNavClose {
+        float: right;
+        padding-top: 5px;
+        padding-top: 7px\9; /* IE adjustment */
+      }
+
+      .projectNavButtons {
+        padding-top: 5px;
+        padding-top: 7px\9; /* IE adjustment */
+        text-align: center;
+      }
+
+      /* Tweak positioning slightly in Firefox */
+      @-moz-document url-prefix() {
+        .projectNavEnlarge, .projectNavClose, .projectNavButtons {
+          padding-top: 7px;
+        }
+      }
+
+      .projectInfo, .linedList {
+        border-bottom: 3px solid #ddd;
+      }
+
+      .projectInfo p:nth-of-type(1) {
+        margin-top: 9px;
+      }
+
+      .projectInfo p:nth-last-child(2) {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+
+#about p, #about blockquote {
+        margin-bottom: 24px;
+      }
+
+      p strong, .projectInfo strong {
+        color: #444;
+      }
+
+      p, .projectInfo p, .projectInfo li {
+        font-family: Arial, sans-serif;
+        font-weight: normal;
+          font-style: normal;
+        font-size: 14px;
+        line-height: 1.3;
+        letter-spacing: 0;
+        text-rendering: auto;
+      }
+
+      .projectInfo ul {
+        margin-top: -8px;
+        margin-bottom: 7px;
+      }
+
+      .projectInfo p + ul {
+        margin-top: -20px;
+      }
+
+      .projectInfo li, .linedList li {
+        border-top: 1px solid #ddd;
+        margin-top: 6px;
+        margin-bottom: -1px;
+        padding-top: 6px;
+        padding-bottom: 0px;
+      }
+
+      .projectInfo li:first-child {
+        border-top: none;
+      }
+
+      .projectInfo li:last-child {
+        margin-bottom: -2px;
+      }
+
+      .linedList {
+        padding-bottom: 7px;
+      }
+
+#about img, #detailView img {
+        max-width: 100%;
+        height: auto;
+      }
+
+#detailView img {
+        padding-bottom: 12px;
+      }
+
+#detailViewImages {
+        text-align: center;
+      }
+
+#detailViewBack {
+        font-size: 12px;
+        font-weight: bold;
+        margin-top: -18px;
+      }
+
+#detailViewBack a {
+        text-decoration: none;
+      }
+
+      footer {
+        margin-top: 0px;
+        margin-bottom: 40px;
+      }
+
+      footer p {
+        font-family: Arial, sans-serif;
+        font-weight: normal;
+          font-style: normal;
+        font-size: 12px;
+        line-height: 1.4;
+        letter-spacing: 0;
+        text-rendering: auto;
+        color: #333;  
+      }
+
+      .video {
+        margin-bottom: 30px;
+      }
+
+#faq p:first-child, #heroNav a, #heroNav a:visited, .contentModule a, .contentModule a:visited {
+        color: #333333;
+      }
+
+#formField {
+        border: 1px solid #555555;
+        margin: 0;
+        width: 200px;
+        height: 20px;
+        display: inline;
+        font-family: Arial, sans-serif;
+        font-weight: normal;
+          font-style: normal;
+        font-size: 14px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        text-decoration: none;
+        text-transform: none;
+        text-rendering: auto;
+      }
+
+#formSubmit {
+        display: inline;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border: none;
+        background: none;
+        padding-left: 5px;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+          font-style: normal;
+        font-size: 12px;
+        line-height: 1.2;
+        letter-spacing: 0.09em;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-rendering: auto;
+        text-shadow: none;
+        -webkit-transition: color 0.2s ease-out;
+        -moz-transition: color 0.2s ease-out;
+        -o-transition: color 0.2s ease-out;
+        transition: color 0.2s ease-out;
+      }
+
+#formField, #content #heroNav ul li, #footerLinks li, #heroNav, .contentModule {
+        border-color: #dddddd;
+      }
+
+#formSubmit, #formField {
+        color: #444444;
+      }
+
+#formField {
+        background: #fff;
+      }
+
+#formField:focus {
+        background: #fff;
+      }
+
+#content img {
+        max-width: 100%;
+        height: auto;
+      }
+
+#hero {
+        margin-top: -15px;
+        margin-bottom: -1px;
+      }
+
+#heroNav {
+        margin-top: 20px;
+        padding-top: 18px;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        margin-bottom: 26px;
+      }
+
+#content #heroNav ul li {
+        display: inline;
+        padding-left: 12px;
+        margin-left: 0;
+        border-right: 1px solid;
+        padding-right: 15px;
+      }
+
+#content #heroNav ul li:last-child {
+        border-right: none;
+        padding-right: 0;
+        margin-right: 0;
+      }
+
+#heroNav ul li:first-child {
+        padding-left: 0;
+        margin-left: 0;
+      }
+
+#heroNav ul {
+        text-align: center;
+        margin-bottom: 18px;
+      }
+
+#heroNav a {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+          font-style: normal;
+        font-size: 16px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        text-decoration: underline;
+        text-transform: none;
+        text-rendering: auto;
+      }
+
+#content ul li {
+        list-style-type: disc;
+        margin-left: 30px;
+        margin-bottom: 10px;
+      }
+
+      .contentModule ul, .contentModule ol {
+        padding-top: 8px;
+      }
+
+#footerLinks li {
+        font-weight: bold;
+        font-size: 12px;
+        display: inline;
+        padding-left: 12px;
+        margin-left: 0;
+        border-right: 1px solid;
+        padding-right: 15px;
+      }
+
+#footerLinks li:first-child {
+        padding-left: 0;
+      }
+
+#footerLinks li:last-child {
+        border-right: none;
+      }
+
+      .contentModule {
+        margin-bottom: 22px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid;
+      }
+
+      .contentModule p {
+        margin-top: 10px;
+        margin-bottom: 15px;
+        line-height: 1.4;
+      }
+
+      .contentModule li:first-child, .contentModule p:first-child {
+        margin-top: -3px;
+      }
+
+      .contentModule:last-child {
+        border-bottom: none;
+      }
+
+#faq p {
+        margin-top: -5px;
+      }
+
+#faq p:first-child {
+        font-weight: bold;
+        margin-top: 0px;
+        line-height: 1.2;
+      }
+
+      code {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 12px;
+        background: #fff;
+        color: #000;
+        text-shadow: none;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+
+      .thumbnailMask {
+        /*background-image: url("../images/masks/rounded.png");*/
+        /*
+        Disable pointer events to allow swipe navigation - needed to use a svg instead of a div since no versions of IE support pointer events on divs
+        */
+        pointer-events: none;
+        width: 460px;
+        height: 284px;
+        position: absolute;
+        z-index: 24;
+      }
+
+      /*===================================================================================================
+      17) Media queries
+      ===================================================================================================*/
+        /* Smaller than standard 960 (devices and browsers) */
+        @media only screen and (max-width: 959px) {
+          
+          nav ul li a, nav ul li button, nav ul li span, #detailViewBack {
+            font-size: 14px;
+          }
+          
+          nav {
+            padding-top: 45px;
+          }
+          
+          .thumbnailMask {
+            background-size: 364px 224px;
+          }
+          
+        }
+
+        /* Tablet portrait size to standard 960 (devices and browsers) */
+        @media only screen and (min-width: 768px) and (max-width: 959px) {
+          
+          .projectThumbnailHover h4 {
+            font-size: 18px;
+          }
+          
+          .projectThumbnailHover h5 {
+            font-size: 11px;
+            padding-top: 63px;
+          }
+          
+          #heroNav a {
+            font-size: 14px;
+          }
+          
+          #footerLinks li {
+            font-size: 13px;
+          }
+          
+        }
+
+        /* All mobile sizes (devices and browser) */
+        @media only screen and (max-width: 767px) {
+          
+          header {
+            padding-top: 40px;
+          }
+          
+          nav {
+            float: left;
+            clear: both;
+            width: 100%;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            padding-bottom: 0px;
+            margin-bottom: -10px;
+          }
+          
+          #overview {
+            padding-bottom: 0px;
+          }
+          
+          .project {
+            margin-bottom: 30px;
+          }
+          
+          footer p {
+            font-size: 14px;
+          }
+          
+          #content #heroNav ul li {
+            display: block;
+            padding-left: 0;
+            margin-left: 0;
+            border-right: none;
+            line-height: 2.0;
+          }
+          
+          #heroNav ul {
+            text-align: left;
+          }
+          
+          #footerLinks li {
+            display: block;
+            padding-left: 0;
+            margin-left: 0;
+            border-right: none;
+            padding-bottom: 8px;
+          }
+          
+          #footerLinks ul {
+            text-align: left;
+          }
+          
+          /* Add back border to last child of first column */
+          .eight:nth-child(4n) .contentModule:last-child, .eight:nth-of-type(1) .contentModule:last-child {
+            border-bottom: 1px solid #dddddd;
+            
+          }
+          
+          .thumbnailMask {
+            background-size: 420px 259px;
+          }
+          
+        }
+
+        /* Mobile landscape size to tablet portrait (devices and browsers) */
+        @media only screen and (min-width: 480px) and (max-width: 767px) {
+          
+        }
+
+        /* Mobile portrait size to mobile landscape size (devices and browsers) */
+        @media only screen and (max-width: 479px) {
+          
+          #logo h1, #logoDetailView h1 {
+            font-size: 30px;
+          }
+          
+          #logo h2, #logoDetailView h2 {
+            font-size: 14px;
+            margin-top: -18px;
+          }
+          
+          #overview h3 {
+            font-size: 24px;  
+          }
+          
+          .projectThumbnailHover h4 {
+            font-size: 14px;
+          }
+          
+          .projectThumbnailHover h5 {
+            font-size: 11px;
+            padding-top: 58px;
+          }
+          
+          .thumbnailMask {
+            background-size: 300px 185px;
+          }
+          
+        }
+
+      /*===================================================================================================
+      18) Print
+      ===================================================================================================*/
+      @media print {
+        * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+        a, a:visited { text-decoration: underline; }
+        a[href]:after { content: " (" attr(href) ")"; }
+        abbr[title]:after { content: " (" attr(title) ")"; }
+        .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+        pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+        thead { display: table-header-group; } /* h5bp.com/t */
+        tr, img { page-break-inside: avoid; }
+        img { max-width: 100% !important; }
+        @page { margin: 0.5cm; }
+        p, h2, h3 { orphans: 3; widows: 3; }
+        h2, h3 { page-break-after: avoid; }
+      }
+      /*
+      ••••••••••••••••••••••••
+
+      Powered by Type & Grids™
+      www.typeandgrids.com
+
+      ••••••••••••••••••••••••
+      */
+
+#sitePreloader { background-color: #000000; } /* Preloader GIF created with http://preloaders.net */
+      body { background-color: #ffffff; }
+      /*body { background: url("../../images/backgrounds/bg_06.png") repeat; }*/
+      .thumbnailMask { background-image: url("../../images/masks/ededed_03.png"); }
+      header { border-color: #2fb775; }
+#logo h1, #logoDetailView h1 { color: #111111; }
+#logo h2, #logoDetailView h2 { color: #222222; }
+      nav ul li a, nav ul li a:visited, nav ul li button { color: #2fb775; }
+      .currentPage, button.currentPage:hover { color: #a1d7bd !important; }
+      nav ul li button:hover, nav ul li button:active, nav ul li button:focus, nav ul li a:hover, nav ul li a:active, nav ul li a:focus, #heroNav a:hover, #heroNav a:visited:hover, #heroNav a:active, #heroNav a:focus, #formSubmit:hover, .contentModule a:hover, .contentModule a:visited:hover, .contentModule a:active, .contentModule a:focus { color: #1c6e46; }
+      hr, .projectInfo h4, .projectNav, .projectInfo, .linedList, .projectInfo li, .projectInfo p:nth-last-child(2), .linedList li, nav, blockquote, #formField, #content #heroNav ul li, #footerLinks li, #heroNav, .contentModule, .eight:nth-child(4n) .contentModule:last-child, .eight:nth-of-type(1) .contentModule:last-child { border-color: #d0d0d0; }
+#overview h3 { color: #333333; }
+      .projectThumbnailHover { background-color: rgba(47, 183, 117, 0.95); }
+      .projectThumbnailHover h4 { color: #ffffff; }
+      .projectThumbnailHover h5 { color: #ffffff; }
+      .projectInfo h4 { color: #444444; }
+      .projectNav { color: #444444; }
+      .projectNavClose button, .projectNavButtons button, .projectNavEnlarge button, .projectNavCounter, #formSubmit, #formField { color: #444444; }
+      .projectNav button:hover, .projectNav button:active, .projectNav button:focus { color: #777777; }
+      .projectNavInactive, button.projectNavInactive, button.projectNavInactive:hover, button.projectNavInactive:active { color: #bbbbbb !important; }
+      p, li, .projectInfo p, .projectInfo li, blockquote, blockquote p, blockquote cite { color: #444444; }
+      p strong, .projectInfo strong, li strong { color: #444444; }
+      footer p { color: #333333; }
+      footer a { color: #2fb775; }
+      h1, h2, h3, h4, h5, h6, #faq p:first-child, .contentModule a, .contentModule a:visited { color: #333333; }
+#heroNav a, #heroNav a:visited { color: #2fb775; }
+      a, a:visited { color: #2fb775; }
+      a:hover, a:active, a:focus { color: #1c6e46; }
+#formField { background: #f6f6f6; }
+#formField:focus { background: #ffffff; }
+      /*
+      ••••••••••••••••••••••••
+
+      Powered by Type & Grids™
+      www.typeandgrids.com
+
+      ••••••••••••••••••••••••
+      */
+
+      /*===================================================================================================
+      Contents
+      =====================================================================================================
+        1) @font-face definitions
+        2) Styles
+        3) Positioning adjustments
+        4) Media query adjustments
+      */
+
+      /*===================================================================================================
+      1) @font-face definitions
+      ===================================================================================================*/
+      @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,400italic,700italic);
+
+      /*===================================================================================================
+      2) Styles
+      ===================================================================================================*/
+
+#logo h1, #logoDetailView h1 {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 34px;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-rendering: optimizeLegibility;
+      }
+
+#logo h2, #logoDetailView h2 {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 400;
+          font-style: normal;
+        font-size: 14px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        text-decoration: none;
+        text-transform: none;
+        text-rendering: auto;
+      }
+
+      nav ul li a, nav ul li button, nav ul li span, #detailViewBack a {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 600;
+          font-style: normal;
+        font-size: 12px;
+        line-height: 1.5;
+        letter-spacing: 0.09em;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-rendering: auto;
+      }
+
+#overview h3 {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 300;
+          font-style: normal;
+        font-size: 40px;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        text-decoration: none;
+        text-transform: none;
+        text-rendering: optimizeLegibility;
+      }
+
+      .projectThumbnailHover h4 {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 600;
+          font-style: normal;
+        font-size: 24px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        text-decoration: none;
+        text-transform: none;
+        text-rendering: auto;
+      }
+
+      .projectThumbnailHover h5 {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 400;
+          font-style: normal;
+        font-size: 14px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        text-decoration: none;
+        text-transform: none;
+        text-rendering: auto;
+      }
+
+      .projectInfo h4 {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 700;
+          font-style: normal;
+        font-size: 16px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        text-decoration: none;
+        text-transform: none;
+        text-rendering: auto;
+      }
+
+      .projectNavCounter {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 400;
+          font-style: normal;
+        font-size: 14px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        text-decoration: none;
+        text-transform: none;
+        text-rendering: auto;
+      }
+
+      .projectNavButtons button {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 600;
+          font-style: normal;
+        font-size: 12px;
+        line-height: 1.2;
+        letter-spacing: 0.09em;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-rendering: auto;
+      }
+
+      .projectNavClose button, .projectNavEnlarge button {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 600;
+          font-style: normal;
+        font-size: 12px;
+        line-height: 1.2;
+        letter-spacing: 0.09em;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-rendering: auto;
+      }
+
+      p, li, .projectInfo p, .projectInfo li {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 400;
+          font-style: normal;
+        font-size: 14px;
+        line-height: 1.4;
+        letter-spacing: 0;
+        text-decoration: none;
+        text-transform: none;
+        text-rendering: auto;
+      }
+
+      footer p, #footerLinks li {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 600;
+          font-style: normal;
+        font-size: 13px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        text-decoration: none;
+        text-transform: none;
+        text-rendering: auto;
+      }
+
+      blockquote, blockquote p {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 400;
+          font-style: italic;
+        font-size: 14px;
+        line-height: 1.4;
+        letter-spacing: 0;
+        text-decoration: none;
+        text-transform: none;
+        text-rendering: auto;
+      }
+
+      blockquote cite {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 700;
+          font-style: normal;
+        font-size: 14px;
+        line-height: 1.3;
+        letter-spacing: 0;
+        text-decoration: none;
+        text-transform: none;
+        text-rendering: auto;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        text-transform: none;
+      }
+
+#heroNav a {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 700;
+          font-style: normal;
+        font-size: 16px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        text-decoration: underline;
+        text-transform: none;
+        text-rendering: auto;
+      }
+
+#formField {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 400;
+          font-style: normal;
+        font-size: 14px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        text-decoration: none;
+        text-transform: none;
+        text-rendering: auto;
+      }
+
+#formSubmit {
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-weight: 700;
+          font-style: normal;
+        font-size: 12px;
+        line-height: 1.2;
+        letter-spacing: 0.09em;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-rendering: auto;
+      }
+
+      /*===================================================================================================
+      3) Positioning adjustments
+      ===================================================================================================*/
+
+#logo h2, #logoDetailView h2 {
+        margin-top: -22px;
+        padding-left: 2px;
+      }
+
+      nav {
+        padding-top: 41px;
+        margin-bottom: -30px;
+      }
+
+      nav ul li {
+        padding-left: 26px;
+      }
+
+#overview {
+        padding-bottom: 10px; 
+      }
+
+#overview h3 {
+        margin-top: -8px;
+        margin-bottom: 23px;
+      }
+
+      .projectThumbnailHover h4 {
+        margin-top: 40px;
+      }
+
+      .projectThumbnailHover h5 {
+        padding-top: 68px;
+      }
+
+      .projectInfo h4 {
+        padding-top: 10px;
+        padding-bottom: 8px;
+      }
+
+      .projectNavCounter {
+        padding-top: 13px;
+      }
+
+      .projectNavClose, .projectNavEnlarge {
+        padding-top: 3px;
+        padding-top: 5px\9; /* IE adjustment */
+      }
+
+      .projectNavButtons {
+        padding-top: 3px;
+        padding-top: 5px\9; /* IE adjustment */
+      }
+
+      /* Tweak positioning slightly in Firefox */
+      @-moz-document url-prefix() {
+        .projectNavEnlarge, .projectNavClose, .projectNavButtons {
+          padding-top: 6px;
+        }
+      }
+
+      .projectInfo ul {
+        margin-top: -8px;
+        margin-bottom: 7px;
+      }
+
+      .projectInfo p + ul {
+        margin-top: -20px;
+      }
+
+      .projectInfo li, .linedList li {
+        border-top: 1px solid #ddd;
+        margin-top: 6px;
+        margin-bottom: -1px;
+        padding-top: 6px;
+        padding-bottom: 0px;
+      }
+
+      @-moz-document url-prefix() {
+        .projectInfo li, .linedList li {
+          margin-bottom: -1px;
+        }
+      }
+
+      .projectInfo li:last-child {
+        margin-bottom: -2px;
+      }
+
+      .linedList {
+        padding-bottom: 7px;
+      }
+
+
+      /*===================================================================================================
+      4) Media query adjustments
+      ===================================================================================================*/
+        /* Smaller than standard 960 (devices and browsers) */
+        @media only screen and (max-width: 959px) {
+          
+          nav ul li a, nav ul li button, nav ul li span, #detailViewBack {
+            font-size: 12px;
+          }
+          
+          nav {
+            padding-top: 39px;
+          }
+          
+        }
+
+        /* Tablet portrait size to standard 960 (devices and browsers) */
+        @media only screen and (min-width: 768px) and (max-width: 959px) {
+          
+          .projectThumbnailHover h4 {
+            font-size: 18px;
+          }
+          
+          .projectThumbnailHover h5 {
+            font-size: 12px;
+            padding-top: 59px;
+          }
+          
+        }
+
+        /* All mobile sizes (devices and browser) */
+        @media only screen and (max-width: 767px) {
+          
+          #logo h1, #logoDetailView h1 {
+            font-size: 30px;
+          }
+          
+          header {
+            padding-top: 40px;
+          }
+          
+          nav {
+            padding-top: 9px;
+            margin-bottom: -11px;
+          }
+          
+          #overview {
+            padding-bottom: 0px;
+          }
+          
+          #overview h3 {
+            font-size: 24px;
+          }
+          
+          footer p {
+            font-size: 14px;
+          }
+          
+        }
+
+        /* Mobile landscape size to tablet portrait (devices and browsers) */
+        @media only screen and (min-width: 480px) and (max-width: 767px) {
+          
+          
+          
+        }
+
+        /* Mobile portrait size to mobile landscape size (devices and browsers) */
+        @media only screen and (max-width: 479px) {
+          
+          #logo h1, #logoDetailView h1 {
+            font-size: 26px;
+          }
+          
+          #logo h2, #logoDetailView h2 {
+            font-size: 14px;
+            margin-top: -20px;
+          }
+          
+          #overview h3 {
+            font-size: 24px;  
+          }
+          
+          .projectThumbnailHover h4 {
+            font-size: 16px;
+          }
+          
+          .projectThumbnailHover h5 {
+            font-size: 14px;
+            padding-top: 60px;
+          }
+          
+        }
+
+    </style>
+    <script>
+// ========================================================================
+//  XML.ObjTree -- XML source code from/to JavaScript object like E4X
+// ========================================================================
+
+if ( typeof(XML) == 'undefined' ) XML = function() {};
+
+//  constructor
+
+XML.ObjTree = function () {
+    return this;
+};
+
+//  class variables
+
+XML.ObjTree.VERSION = "0.24";
+
+//  object prototype
+
+XML.ObjTree.prototype.xmlDecl = '<?xml version="1.0" encoding="UTF-8" ?>\n';
+XML.ObjTree.prototype.attr_prefix = '-';
+XML.ObjTree.prototype.overrideMimeType = 'text/xml';
+
+//  method: parseXML( xmlsource )
+
+XML.ObjTree.prototype.parseXML = function ( xml ) {
+    var root;
+    if ( window.DOMParser ) {
+        var xmldom = new DOMParser();
+//      xmldom.async = false;           // DOMParser is always sync-mode
+        var dom = xmldom.parseFromString( xml, "application/xml" );
+        if ( ! dom ) return;
+        root = dom.documentElement;
+    } else if ( window.ActiveXObject ) {
+        xmldom = new ActiveXObject('Microsoft.XMLDOM');
+        xmldom.async = false;
+        xmldom.loadXML( xml );
+        root = xmldom.documentElement;
+    }
+    if ( ! root ) return;
+    return this.parseDOM( root );
+};
+
+//  method: parseHTTP( url, options, callback )
+
+XML.ObjTree.prototype.parseHTTP = function ( url, options, callback ) {
+    var myopt = {};
+    for( var key in options ) {
+        myopt[key] = options[key];                  // copy object
+    }
+    if ( ! myopt.method ) {
+        if ( typeof(myopt.postBody) == "undefined" &&
+             typeof(myopt.postbody) == "undefined" &&
+             typeof(myopt.parameters) == "undefined" ) {
+            myopt.method = "get";
+        } else {
+            myopt.method = "post";
+        }
+    }
+    if ( callback ) {
+        myopt.asynchronous = true;                  // async-mode
+        var __this = this;
+        var __func = callback;
+        var __save = myopt.onComplete;
+        myopt.onComplete = function ( trans ) {
+            var tree;
+            if ( trans && trans.responseXML && trans.responseXML.documentElement ) {
+                tree = __this.parseDOM( trans.responseXML.documentElement );
+            } else if ( trans && trans.responseText ) {
+                tree = __this.parseXML( trans.responseText );
+            }
+            __func( tree, trans );
+            if ( __save ) __save( trans );
+        };
+    } else {
+        myopt.asynchronous = false;                 // sync-mode
+    }
+    var trans;
+    if ( typeof(HTTP) != "undefined" && HTTP.Request ) {
+        myopt.uri = url;
+        var req = new HTTP.Request( myopt );        // JSAN
+        if ( req ) trans = req.transport;
+    } else if ( typeof(Ajax) != "undefined" && Ajax.Request ) {
+        var req = new Ajax.Request( url, myopt );   // ptorotype.js
+        if ( req ) trans = req.transport;
+    }
+//  if ( trans && typeof(trans.overrideMimeType) != "undefined" ) {
+//      trans.overrideMimeType( this.overrideMimeType );
+//  }
+    if ( callback ) return trans;
+    if ( trans && trans.responseXML && trans.responseXML.documentElement ) {
+        return this.parseDOM( trans.responseXML.documentElement );
+    } else if ( trans && trans.responseText ) {
+        return this.parseXML( trans.responseText );
+    }
+}
+
+//  method: parseDOM( documentroot )
+
+XML.ObjTree.prototype.parseDOM = function ( root ) {
+    if ( ! root ) return;
+
+    this.__force_array = {};
+    if ( this.force_array ) {
+        for( var i=0; i<this.force_array.length; i++ ) {
+            this.__force_array[this.force_array[i]] = 1;
+        }
+    }
+
+    var json = this.parseElement( root );   // parse root node
+    if ( this.__force_array[root.nodeName] ) {
+        json = [ json ];
+    }
+    if ( root.nodeType != 11 ) {            // DOCUMENT_FRAGMENT_NODE
+        var tmp = {};
+        tmp[root.nodeName] = json;          // root nodeName
+        json = tmp;
+    }
+    return json;
+};
+
+//  method: parseElement( element )
+
+XML.ObjTree.prototype.parseElement = function ( elem ) {
+    //  COMMENT_NODE
+    if ( elem.nodeType == 7 ) {
+        return;
+    }
+
+    //  TEXT_NODE CDATA_SECTION_NODE
+    if ( elem.nodeType == 3 || elem.nodeType == 4 ) {
+        var bool = elem.nodeValue.match( /[^\x00-\x20]/ );
+        if ( bool == null ) return;     // ignore white spaces
+        return elem.nodeValue;
+    }
+
+    var retval;
+    var cnt = {};
+
+    //  parse attributes
+    if ( elem.attributes && elem.attributes.length ) {
+        retval = {};
+        for ( var i=0; i<elem.attributes.length; i++ ) {
+            var key = elem.attributes[i].nodeName;
+            if ( typeof(key) != "string" ) continue;
+            var val = elem.attributes[i].nodeValue;
+            if ( ! val ) continue;
+            key = this.attr_prefix + key;
+            if ( typeof(cnt[key]) == "undefined" ) cnt[key] = 0;
+            cnt[key] ++;
+            this.addNode( retval, key, cnt[key], val );
+        }
+    }
+
+    //  parse child nodes (recursive)
+    if ( elem.childNodes && elem.childNodes.length ) {
+        var textonly = true;
+        if ( retval ) textonly = false;        // some attributes exists
+        for ( var i=0; i<elem.childNodes.length && textonly; i++ ) {
+            var ntype = elem.childNodes[i].nodeType;
+            if ( ntype == 3 || ntype == 4 ) continue;
+            textonly = false;
+        }
+        if ( textonly ) {
+            if ( ! retval ) retval = "";
+            for ( var i=0; i<elem.childNodes.length; i++ ) {
+                retval += elem.childNodes[i].nodeValue;
+            }
+        } else {
+            if ( ! retval ) retval = {};
+            for ( var i=0; i<elem.childNodes.length; i++ ) {
+                var key = elem.childNodes[i].nodeName;
+                if ( typeof(key) != "string" ) continue;
+                var val = this.parseElement( elem.childNodes[i] );
+                if ( ! val ) continue;
+                if ( typeof(cnt[key]) == "undefined" ) cnt[key] = 0;
+                cnt[key] ++;
+                this.addNode( retval, key, cnt[key], val );
+            }
+        }
+    }
+    return retval;
+};
+
+//  method: addNode( hash, key, count, value )
+
+XML.ObjTree.prototype.addNode = function ( hash, key, cnts, val ) {
+    if ( this.__force_array[key] ) {
+        if ( cnts == 1 ) hash[key] = [];
+        hash[key][hash[key].length] = val;      // push
+    } else if ( cnts == 1 ) {                   // 1st sibling
+        hash[key] = val;
+    } else if ( cnts == 2 ) {                   // 2nd sibling
+        hash[key] = [ hash[key], val ];
+    } else {                                    // 3rd sibling and more
+        hash[key][hash[key].length] = val;
+    }
+};
+
+//  method: writeXML( tree )
+
+XML.ObjTree.prototype.writeXML = function ( tree ) {
+    var xml = this.hash_to_xml( null, tree );
+    return this.xmlDecl + xml;
+};
+
+//  method: hash_to_xml( tagName, tree )
+
+XML.ObjTree.prototype.hash_to_xml = function ( name, tree ) {
+    var elem = [];
+    var attr = [];
+    for( var key in tree ) {
+        if ( ! tree.hasOwnProperty(key) ) continue;
+        var val = tree[key];
+        if ( key.charAt(0) != this.attr_prefix ) {
+            if ( typeof(val) == "undefined" || val == null ) {
+                elem[elem.length] = "<"+key+" />";
+            } else if ( typeof(val) == "object" && val.constructor == Array ) {
+                elem[elem.length] = this.array_to_xml( key, val );
+            } else if ( typeof(val) == "object" ) {
+                elem[elem.length] = this.hash_to_xml( key, val );
+            } else {
+                elem[elem.length] = this.scalar_to_xml( key, val );
+            }
+        } else {
+            attr[attr.length] = " "+(key.substring(1))+'="'+(this.xml_escape( val ))+'"';
+        }
+    }
+    var jattr = attr.join("");
+    var jelem = elem.join("");
+    if ( typeof(name) == "undefined" || name == null ) {
+        // no tag
+    } else if ( elem.length > 0 ) {
+        if ( jelem.match( /\n/ )) {
+            jelem = "<"+name+jattr+">\n"+jelem+"</"+name+">\n";
+        } else {
+            jelem = "<"+name+jattr+">"  +jelem+"</"+name+">\n";
+        }
+    } else {
+        jelem = "<"+name+jattr+" />\n";
+    }
+    return jelem;
+};
+
+//  method: array_to_xml( tagName, array )
+
+XML.ObjTree.prototype.array_to_xml = function ( name, array ) {
+    var out = [];
+    for( var i=0; i<array.length; i++ ) {
+        var val = array[i];
+        if ( typeof(val) == "undefined" || val == null ) {
+            out[out.length] = "<"+name+" />";
+        } else if ( typeof(val) == "object" && val.constructor == Array ) {
+            out[out.length] = this.array_to_xml( name, val );
+        } else if ( typeof(val) == "object" ) {
+            out[out.length] = this.hash_to_xml( name, val );
+        } else {
+            out[out.length] = this.scalar_to_xml( name, val );
+        }
+    }
+    return out.join("");
+};
+
+//  method: scalar_to_xml( tagName, text )
+
+XML.ObjTree.prototype.scalar_to_xml = function ( name, text ) {
+    if ( name == "#text" ) {
+        return this.xml_escape(text);
+    } else {
+        return "<"+name+">"+this.xml_escape(text)+"</"+name+">\n";
+    }
+};
+
+//  method: xml_escape( text )
+
+XML.ObjTree.prototype.xml_escape = function ( text ) {
+    return String(text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+};
+
+    </script>
+  </body>
+</html>

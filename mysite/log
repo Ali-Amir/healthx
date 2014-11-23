@@ -1,0 +1,433 @@
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 17, in getPatientData
+    from requests_oauthlib import OAuth2
+ImportError: No module named requests_oauthlib
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 19, in getPatientData
+    auth = OAuth1('he92p22duzyc7zttxr29jvkz', 'FwmCHrRz6wmW8dr')
+NameError: global name 'OAuth1' is not defined
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 20, in getPatientData
+    print requests.get(url, auth=auth)
+  File "/usr/lib/python2.7/dist-packages/requests/api.py", line 55, in get
+    return request('get', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/api.py", line 44, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 422, in request
+    prep = self.prepare_request(req)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 360, in prepare_request
+    hooks=merge_hooks(request.hooks, self.hooks),
+  File "/usr/lib/python2.7/dist-packages/requests/models.py", line 298, in prepare
+    self.prepare_auth(auth, url)
+  File "/usr/lib/python2.7/dist-packages/requests/models.py", line 475, in prepare_auth
+    r = auth(self)
+  File "/usr/local/lib/python2.7/dist-packages/requests_oauthlib/oauth2_auth.py", line 33, in __call__
+    r.url, r.headers, r.body = self._client.add_token(r.url,
+AttributeError: 'str' object has no attribute 'add_token'
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 20, in getPatientData
+    requests.get(url, auth=auth)
+  File "/usr/lib/python2.7/dist-packages/requests/api.py", line 55, in get
+    return request('get', url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/api.py", line 44, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 422, in request
+    prep = self.prepare_request(req)
+  File "/usr/lib/python2.7/dist-packages/requests/sessions.py", line 360, in prepare_request
+    hooks=merge_hooks(request.hooks, self.hooks),
+  File "/usr/lib/python2.7/dist-packages/requests/models.py", line 298, in prepare
+    self.prepare_auth(auth, url)
+  File "/usr/lib/python2.7/dist-packages/requests/models.py", line 475, in prepare_auth
+    r = auth(self)
+  File "/usr/local/lib/python2.7/dist-packages/requests_oauthlib/oauth2_auth.py", line 33, in __call__
+    r.url, r.headers, r.body = self._client.add_token(r.url,
+AttributeError: 'str' object has no attribute 'add_token'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/dist-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/aliamir/github/healthx/mysite/mysite/urls.py", line 10, in <module>
+    url(r'^$', include('healthx.urls')),
+  File "/usr/lib/python2.7/dist-packages/django/conf/urls/__init__.py", line 26, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/dist-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/aliamir/github/healthx/mysite/healthx/urls.py", line 3, in <module>
+    from healthx import views
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 4, in <module>
+    import healthx.athenaapi
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 22
+    def getPatientData:
+                      ^
+SyntaxError: invalid syntax
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/dist-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/aliamir/github/healthx/mysite/mysite/urls.py", line 10, in <module>
+    url(r'^$', include('healthx.urls')),
+  File "/usr/lib/python2.7/dist-packages/django/conf/urls/__init__.py", line 26, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/dist-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/aliamir/github/healthx/mysite/healthx/urls.py", line 3, in <module>
+    from healthx import views
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 4, in <module>
+    import healthx.athenaapi
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 22
+    def getPatientData:
+                      ^
+SyntaxError: invalid syntax
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/dist-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/aliamir/github/healthx/mysite/mysite/urls.py", line 10, in <module>
+    url(r'^$', include('healthx.urls')),
+  File "/usr/lib/python2.7/dist-packages/django/conf/urls/__init__.py", line 26, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/dist-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/aliamir/github/healthx/mysite/healthx/urls.py", line 3, in <module>
+    from healthx import views
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 4, in <module>
+    import healthx.athenaapi
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 22
+    def getPatientData:
+                      ^
+SyntaxError: invalid syntax
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(athenaapi.getPatientData)
+NameError: global name 'athenaapi' is not defined
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 94, in getPatientData
+    note_successful = post_status['success']
+KeyError: 'success'
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 94, in getPatientData
+    note_successful = post_status['success']
+KeyError: 'success'
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 95, in getPatientData
+    note_successful = post_status['success']
+KeyError: 'success'
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 96, in getPatientData
+    note_successful = post_status['success']
+KeyError: 'success'
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 98, in getPatientData
+    note_successful = post_status['success']
+KeyError: 'success'
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 99, in getPatientData
+    note_successful = post_status['success']
+KeyError: 'success'
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 99, in getPatientData
+    note_successful = post_status['success']
+KeyError: 'success'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/dist-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/aliamir/github/healthx/mysite/mysite/urls.py", line 10, in <module>
+    url(r'^$', include('healthx.urls')),
+  File "/usr/lib/python2.7/dist-packages/django/conf/urls/__init__.py", line 26, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/dist-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/aliamir/github/healthx/mysite/healthx/urls.py", line 3, in <module>
+    from healthx import views
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 4, in <module>
+    import healthx.athenaapi
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 83
+    parameters = urllib.urlencode({
+    ^
+IndentationError: unexpected indent
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 100, in getPatientData
+    note_successful = post_status['success']
+KeyError: 'success'
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 100, in getPatientData
+    note_successful = post_status['success']
+KeyError: 'success'
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 100, in getPatientData
+    note_successful = post_status['success']
+KeyError: 'success'
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 100, in getPatientData
+    note_successful = post_status['success']
+KeyError: 'success'
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 100, in getPatientData
+    note_successful = post_status['success']
+KeyError: 'success'
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 100, in getPatientData
+    note_successful = post_status['success']
+KeyError: 'success'
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 98, in getPatientData
+    note_successful = post_status['success']
+KeyError: 'success'
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 95, in getPatientData
+    post_status = json.loads(response.read())
+  File "/usr/lib/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.7/json/decoder.py", line 384, in raw_decode
+    raise ValueError("No JSON object could be decoded")
+ValueError: No JSON object could be decoded
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 96, in getPatientData
+    post_status = json.loads(response.read())
+  File "/usr/lib/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.7/json/decoder.py", line 384, in raw_decode
+    raise ValueError("No JSON object could be decoded")
+ValueError: No JSON object could be decoded
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 96, in getPatientData
+    post_status = json.loads(response.read())
+  File "/usr/lib/python2.7/json/__init__.py", line 338, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python2.7/json/decoder.py", line 366, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib/python2.7/json/decoder.py", line 384, in raw_decode
+    raise ValueError("No JSON object could be decoded")
+ValueError: No JSON object could be decoded
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 97, in getPatientData
+    note_successful = post_status['success']
+KeyError: 'success'
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 96, in getPatientData
+    note_successful = post_status['success']
+KeyError: 'success'
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/lib/python2.7/dist-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/aliamir/github/healthx/mysite/mysite/urls.py", line 10, in <module>
+    url(r'^$', include('healthx.urls')),
+  File "/usr/lib/python2.7/dist-packages/django/conf/urls/__init__.py", line 26, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python2.7/dist-packages/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/aliamir/github/healthx/mysite/healthx/urls.py", line 3, in <module>
+    from healthx import views
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 4, in <module>
+    import healthx.athenaapi
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 34
+    'limit': 1,
+           ^
+SyntaxError: invalid syntax
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 38, in getPatientData
+    root = etree.fromstring(ccda)
+  File "lxml.etree.pyx", line 3032, in lxml.etree.fromstring (src/lxml/lxml.etree.c:68292)
+  File "parser.pxi", line 1785, in lxml.etree._parseMemoryDocument (src/lxml/lxml.etree.c:102630)
+ValueError: can only parse strings
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 38, in getPatientData
+    root = etree.fromstring(ccda[0])
+  File "lxml.etree.pyx", line 3032, in lxml.etree.fromstring (src/lxml/lxml.etree.c:68292)
+  File "parser.pxi", line 1785, in lxml.etree._parseMemoryDocument (src/lxml/lxml.etree.c:102630)
+ValueError: can only parse strings
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 39, in getPatientData
+    root = etree.fromstring(ccda[0])
+  File "lxml.etree.pyx", line 3032, in lxml.etree.fromstring (src/lxml/lxml.etree.c:68292)
+  File "parser.pxi", line 1785, in lxml.etree._parseMemoryDocument (src/lxml/lxml.etree.c:102630)
+ValueError: can only parse strings
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 38, in getPatientData
+    print ccda[0].ccda
+AttributeError: 'dict' object has no attribute 'ccda'
+Internal Server Error: /getPatientData
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/aliamir/github/healthx/mysite/healthx/views.py", line 14, in getPatientData
+    return HttpResponse(healthx.athenaapi.getPatientData())
+  File "/home/aliamir/github/healthx/mysite/healthx/athenaapi.py", line 39, in getPatientData
+    tree = etree.parse(StringIO(ccda[0]['ccda']), parser)
+NameError: global name 'StringIO' is not defined
