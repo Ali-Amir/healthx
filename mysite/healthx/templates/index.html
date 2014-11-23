@@ -4,7 +4,9 @@
     <script src="http://johntang.github.io/JsTree/_lib/jquery.cookie.js"></script>
     <script src="http://johntang.github.io/JsTree/_lib/jquery.hotkeys.js"></script>
     <script src="http://johntang.github.io/JsTree/jquery.jstree.js"></script>
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jstree/3.0.4/themes/default/style.min.css" />
+    <script src="http://www.eslinstructor.net/vkbeautify/vkbeautify.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://www.eslinstructor.net/vkbeautify/main.css" media="screen">
+
   </head>
 
   <body>
@@ -33,7 +35,7 @@
           </h2>
           <img src="http://www.rpgnow.com/shared_images/ajax-loader.gif" style="margin-top:-100px; margin-left:-170px; width:300px; height:300px;">
         </div>
-        <div id="data">
+        <div id="data" style="margin-left:+200px; text-align:left;">
           
         </div>
       </div>
@@ -83,12 +85,17 @@
           $('#hacking').hide();
           //$('#data').jstree({'xml_data': {'data': xml}, 'plugins': ["themes", "xml_data"]});
           var targetElement = document.getElementById("data");
-          var xmlTextNode = insertLiteral(xml, targetElement);
+          var asd = vkbeautify.xml(xml);
+          //$('#data').html(asd);
+          var xmlTextNode = insertLiteral(asd, targetElement);
           //$('#data').innerHTML(xml_to_string(xml));
         });
       }
     </script>
     <style>
+    #data {
+          white-space: pre-wrap;
+    }
       #targetDiv {
         font-family: fixed;
         white-space: pre;
