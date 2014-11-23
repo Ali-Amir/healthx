@@ -1,5 +1,10 @@
 import BaseHTTPServer
 import urlparse
+import jinja2
+
+with open('index.html', 'r') as f:
+  index_page = f.read()
+ 
 
 class HealthXHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 
@@ -9,5 +14,7 @@ class HealthXHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     self.send_response(200)
     self.send_header('content-type', 'text/html')
     self.end_headers()
-    self.wfile.write('Shit')
+
+    template = jinja2.Template(index_page)
+    self.wfile.write(template.render())
 
